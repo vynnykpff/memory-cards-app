@@ -1,12 +1,20 @@
-import './SingleCard.css'
+import './SingleCard.css';
+import {Card} from "../../types";
 
-export const SingleCard = ({ card, handleChoice, flipped, disabled }): Props => {
+interface Props {
+  card: Card;
+  handleChoice: (card: Card) => void;
+  flipped: boolean;
+  disabled: boolean;
+}
+
+export const SingleCard = ({ card, handleChoice, flipped, disabled }: Props) => {
 
   const handleClick = () => {
     if (!disabled) {
-      handleChoice(card)
+      handleChoice(card);
     }
-  }
+  };
 
   return (
     <div className="card">
@@ -15,5 +23,5 @@ export const SingleCard = ({ card, handleChoice, flipped, disabled }): Props => 
         <img className="back" src="/img/cover.png" onClick={handleClick} alt="cover" />
       </div>
     </div>
-  )
+  );
 };
